@@ -36,18 +36,22 @@ A reliable automated detection system is needed to help users identify malicious
 | Pickle (.pkl) | Model serialization and deployment |
 
 🏗️ System Architecture
-<img width="1894" height="910" alt="homepage png" src="https://github.com/user-attachments/assets/1e32dc18-969c-4a17-8f67-31623bbfbd61" />
+<img width="1328" height="675" alt="architecture png" src="https://github.com/user-attachments/assets/4618a89c-74a6-4173-a069-c422e4c1f92f" />
+
 
 
 📸 Application Screenshots
 ### Home Page
-![Home Page](Phishing Website Detection System/imges/homepage.png)
+<img width="1894" height="910" alt="homepage png" src="https://github.com/user-attachments/assets/93acee4a-9c05-445b-b2e9-71cbf6b9204d" />
+
 
 ### Legitimate Website Prediction
-![Legitimate Result](Phishing Website Detection System/images/legitimate_result.png)
+<img width="1899" height="913" alt="legitimate_result png" src="https://github.com/user-attachments/assets/0109af29-b05d-474e-9c12-a8c58b17c81f" />
+
 
 ### Phishing Website Prediction
-![Phishing Result](Phishing Website Detection System/images/phishing_result.png)
+<img width="1904" height="918" alt="phishing_result png" src="https://github.com/user-attachments/assets/02e8b516-353a-488b-b91d-093c75061d25" />
+
 
 ▶️ How to Run the Project
 Clone Repository
