@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    
+    <title>Phishing Website Detection</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static',filename ='assets/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename ='assets/css/PhishingDetection.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename ='assets/css/owl.css')}}">
+<!--
+
+-->
+  </head>
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="/"><h2>Phishing Website Detection</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#top">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+              </li>  
+             
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('behindthescenes') }}">Implementation</a>
+              </li>                          
+              
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('detecturl') }}">Detect a URL</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+          <!-- Item -->
+          <div class="item item-1">
+            <div class="img-fill">
+                <div class="text-content">
+                  <h6>We are here to support you</h6>
+                  <h4>Phishing Website<br>&amp; Detection</h4>
+                  <p>To the human eye, the URL of phishing website seems very similar to real websites. But phishing websites are created with a malicious intent.<br>To know more, visit our blogs section.</p>
+              
+                </div>
+            </div>
+          </div>
+          
+          <!-- // Item -->
+          <!-- Item -->
+          <div class="item item-3">
+            <div class="img-fill">
+                <div class="text-content">
+                  <h6>We are ready to help you with</h6>
+                  <h4>State of the Art <br>Technology</h4>
+                  <p>Machine learning is the last invention that humanity will ever need to make. Get a look behind the scenes of our Machine Learning model that makes classifications based on a simple URL input.</p>
+              
+                </div>
+            </div>
+          </div>
+          <!-- // Item -->
+        </div>
+    </div>
+    <!-- Banner Ends Here -->
+
+    <div class="request-form">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h4>Have you come across a suspicious website?</h4>
+            <span>Keep yourself safe using Phishing website</span>
+          </div>
+          <div class="col-md-4">
+            <a href="/detecturl" class="border-button">Check Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Our <em>Goals</em></h2>
+              <span>What we aspire to achieve?</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src="{{ url_for('static',filename='assets/images/goal3.jpg')}}" style="height:197px;" alt="">
+              <div class="down-content">
+                <h4>Phishing Awareness</h4>
+                <p>A platform that educates people on how to protect themselves against phishers who want to disrupt and steal their data.</p>
+                <a href="/behindthescenes" class="filled-button">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="service-item">
+              <img src="{{ url_for('static',filename='assets/images/goal2.jpg')}}" alt="">
+              <div class="down-content">
+                <h4>Phishing Detection</h4>
+                <p>A system that detects phishing in <br>real-time using machine learning model built by our team.</p>
+                <a href="/detecturl" class="filled-button">Read More</a>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="fun-facts">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="left-content">
+              <span>Phishing Statistics</span>
+              <h2>Recent Trends in<em> <br>Phishing Attacks</em></h2>
+              <p> 75% of organisations around the world experienced Phishing in the year 2020.
+              <br>The United States of America was the most affected country with a staggering 2,41,324 Phsihing cases.
+              <br>Data Breach caused by Phishing costs business an average of $4 Million, according to IBM. 
+              <br>Total number of registered Phishing URLs as of January,2021 is 21,45,013. This is up from 16,90,000 in January,2020. </p>
+              
+            </div>
+          </div>
+          <div class="col-md-6 align-self-center">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="count-area-content">
+                  <div class="count-digit">75</div>
+                  <div class="count-title">% Organisations</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="count-area-content">
+                  <div class="count-digit">241324</div>
+                  <div class="count-title">Phishing Cases</div>
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="count-area-content">
+                  <div class="count-digit">2145013</div>
+                  <div class="count-title">Registered Phishing URL</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+    
+
+
+    <!-- Footer Starts Here -->
+    
+    
+    <div class="sub-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p> Phishing Website Detection
+            
+           
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+    <!-- Additional Scripts -->
+    <script src="{{ url_for('static',filename='assets/js/custom.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/owl.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/slick.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/accordions.js')}}"></script>
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; 
+      function clearField(t){                  
+      if(! cleared[t.id]){                      
+          cleared[t.id] = 1;  
+          t.value='';        
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+  </body>
+</html>

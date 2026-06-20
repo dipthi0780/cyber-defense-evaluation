@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+<title>Phishing Website Detection</title>
+
+<link href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ url_for('static',filename='assets/css/fontawesome.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='assets/css/PhishingDetection.css')}}">
+<link rel="stylesheet" href="{{ url_for('static',filename='assets/css/owl.css')}}">
+
+</head>
+
+<body>
+
+
+<header class="">
+<nav class="navbar navbar-expand-lg">
+<div class="container">
+
+<a class="navbar-brand" href="/"><h2>Phishing Website Detection</h2></a>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse"
+data-target="#navbarResponsive">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarResponsive">
+
+<ul class="navbar-nav ml-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="/">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+</li>
+
+<li class="nav-item active">
+<a class="nav-link" href="{{ url_for('behindthescenes') }}">Implementation</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('detecturl') }}">Detect a URL</a>
+</li>
+
+</ul>
+
+</div>
+</div>
+</nav>
+</header>
+
+
+<!-- Banner -->
+<div class="page-heading header-text">
+
+<div class="container">
+<div class="row">
+
+<div class="col-md-12">
+
+<h1>System Implementation</h1>
+
+<span>Machine Learning Based Phishing Website Detection</span>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- Implementation Details -->
+
+<div class="services">
+
+<div class="container">
+
+
+<div class="row">
+
+<div class="col-md-12">
+
+<div class="section-heading">
+
+<h2>Project <em>Implementation</em></h2>
+
+<span>How our machine learning model detects phishing websites</span>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-4">
+
+<div class="service-item">
+
+<div class="down-content">
+
+<h4>Dataset</h4>
+
+<p>
+The dataset used contains more than 5 lakh URLs labelled as
+<b>phishing</b> or <b>legitimate</b>.  
+The model learns patterns from these URLs and predicts if
+a new URL is malicious.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-4">
+
+<div class="service-item">
+
+<div class="down-content">
+
+<h4>Feature Extraction</h4>
+
+<p>
+We extract <b>50 URL features</b> such as:
+<br>
+• URL Length  
+<br>
+• Number of dots  
+<br>
+• Digit ratio  
+<br>
+• Suspicious keywords  
+<br>
+• HTTPS presence  
+<br>
+• Subdomain count  
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-4">
+
+<div class="service-item">
+
+<div class="down-content">
+
+<h4>Algorithms</h4>
+
+<p>
+
+The system was trained using advanced machine learning models:
+
+<br><br>
+
+• Random Forest  
+<br>
+• XGBoost  
+
+<br><br>
+
+Random Forest achieved the best accuracy and is used for prediction.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<!-- Model Evaluation -->
+
+<div class="services">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-12">
+
+<div class="section-heading">
+
+<h2>Model <em>Evaluation</em></h2>
+
+<span>Performance analysis of the trained machine learning model</span>
+
+</div>
+
+</div>
+
+
+
+    <div class="col-md-4">
+
+        <div class="service-item">
+
+            <img src="{{ url_for('static', filename='results/RandomForest_confusion_matrix1.png') }}" style="height:260px;">
+
+            <div class="down-content">
+
+                <h4>Confusion Matrix</h4>
+
+                <p>
+                    Shows how many URLs were correctly and incorrectly classified
+                    by the model.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="col-md-4">
+
+        <div class="service-item">
+
+            <img src="{{ url_for('static', filename='results/RandomForest_roc_curve1.png') }}" style="height:260px;">
+
+            <div class="down-content">
+
+                <h4>ROC Curve</h4>
+
+                <p>
+                The ROC curve measures how well the model distinguishes
+                between phishing and legitimate URLs.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="col-md-4">
+
+        <div class="service-item">
+
+            <img src="{{ url_for('static', filename='results/RandomForest_metrics1.png') }}" style="height:260px;">
+
+            <div class="down-content">
+
+                <h4>Performance Metrics</h4>
+
+                <p>
+                Accuracy, Precision, Recall and F1 Score are used to evaluate
+                the machine learning model performance.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-4">
+
+        <div class="service-item">
+
+            <img src="{{ url_for('static', filename='results/XGBoost_confusion_matrix1.png') }}" style="height:260px;">
+
+            <div class="down-content">
+
+                <h4>Confusion Matrix</h4>
+
+                <p>
+                    Shows how many URLs were correctly and incorrectly classified
+                    by the model.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="col-md-4">
+
+        <div class="service-item">
+
+            <img src="{{ url_for('static', filename='results/XGBoost_roc_curve1.png') }}" style="height:260px;">
+
+            <div class="down-content">
+
+                <h4>ROC Curve</h4>
+
+                <p>
+                The ROC curve measures how well the model distinguishes
+                between phishing and legitimate URLs.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="col-md-4">
+
+        <div class="service-item">
+
+            <img src="{{ url_for('static', filename='results/XGBoost_metrics1.png') }}" style="height:260px;">
+
+            <div class="down-content">
+
+                <h4>Performance Metrics</h4>
+
+                <p>
+                Accuracy, Precision, Recall and F1 Score are used to evaluate
+                the machine learning model performance.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+</div>
+</div>
+
+
+
+<!-- Footer -->
+
+<div class="sub-footer">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-12">
+
+<p>Phishing Website Detection System</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+<script src="{{ url_for('static',filename='assets/js/custom.js')}}"></script>
+<script src="{{ url_for('static',filename='assets/js/owl.js')}}"></script>
+<script src="{{ url_for('static',filename='assets/js/slick.js')}}"></script>
+<script src="{{ url_for('static',filename='assets/js/accordions.js')}}"></script>
+
+</body>
+</html>

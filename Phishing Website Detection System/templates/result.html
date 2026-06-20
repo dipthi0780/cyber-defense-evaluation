@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Phishing Website Detection</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static',filename ='assets/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename ='assets/css/PhishingDetection.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename ='assets/css/owl.css')}}">
+<!--
+
+-->
+    <style>
+      .output{
+        background: #FFF;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 120px 30px 80px 30px;
+      }
+
+      #phish{
+        color: red;
+      } 
+
+      #legit{
+        color: green;
+      } 
+
+      #legitimg {
+        width: 614px;
+        height: 331px;
+      }
+
+      .urlheading {
+        text-align: center;
+        padding-top: 50px;
+        padding-bottom: -50px;
+      }
+
+      .output .legitimate{
+        margin: auto;
+        width: 50%;
+        border: 3px solid green;
+        padding: 20px;
+      }
+
+      .output .phishing{
+        margin: auto;
+        width: 50%;
+        border: 3px solid red;
+        padding: 20px;
+      }
+      
+    </style>
+  </head>
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <div class="sub-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-xs-12">
+            <ul class="left-info">
+              
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="/"><h2>Phishing Website Detection</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About Us</a>
+              </li>  
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/behindthescenes">Implementation</a>
+              </li>                          
+              
+              <li class="nav-item active">
+                <a class="nav-link" href="/detecturl">Detect a URL</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-heading header-text" style="padding: 110px 0px 50px 0px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>URL DETECTED</h1>
+            <span>Lets check your result and keep you safe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='urlheading'><h4>Input URL is:&nbsp;</h4><br><h3><b>{{ name }}</b></h3></div>
+    <div class="output">
+     
+      {% if leg  == 0%}
+                <img id='legitimg' src="{{ url_for('static',filename ='assets/images/legitres1.gif')}}"><br>
+                <div class='legitimate'>
+                  <br><h1 id='legit'>This URL is <b>LEGITIMATE</b></h1><br>
+                  <h3>Keep surfing, the URL seems safe</h3>
+                </div>
+                
+			{% else %}
+                
+                <img src="{{ url_for('static',filename ='assets/images/phishres.gif')}}"><br>
+                <div class='phishing'>
+                  <br><h1 id='phish'>This URL is <b>PHISHING</b></h1><br>
+                  <h3>Beware, looks like we caught a Phish</h3>
+                </div>
+			{% endif %}
+    </div>
+
+    
+    <!-- Footer Starts Here -->
+    
+    
+    <div class="sub-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p>Phishing Website Detection
+            
+           
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+    <!-- Additional Scripts -->
+    <script src="{{ url_for('static',filename='assets/js/custom.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/owl.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/slick.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/accordions.js')}}"></script>
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; 
+      function clearField(t){                   
+      if(! cleared[t.id]){                      
+          cleared[t.id] = 1;  
+          t.value='';         
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+  </body>
+</html>

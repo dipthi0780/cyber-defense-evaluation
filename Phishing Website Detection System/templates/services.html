@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Phishing Website Detection</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static',filename ='assets/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename ='assets/css/PhishingDetection.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename ='assets/css/owl.css')}}">
+<!--
+
+-->
+  </head>
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <div class="sub-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-xs-12">
+            <ul class="left-info">
+              
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="/"><h2>Phishing Website Detection</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About Us</a>
+              </li>  
+              
+              <li class="nav-item active">
+                <a class="nav-link" href="/behindthescenes">Implementation</a>
+              </li>                          
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/detecturl">Detect a URL</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Behind the Scenes</h1>
+            <span>Let's explore the steps behind our implementation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="single-services">
+      <div class="container">
+        <div class="row" id="tabs">
+          <div class="col-md-4">
+            <ul>
+              <li><a href='#tabs-1'>Data Collection <i class="fa fa-angle-right"></i></a></li>
+              <li><a href='#tabs-2'>Feature Extraction <i class="fa fa-angle-right"></i></a></li>
+              <li><a href='#tabs-3'>Data Preparation <i class="fa fa-angle-right"></i></a></li>
+              <li><a href='#tabs-4'>Model Creation <i class="fa fa-angle-right"></i></a></li>
+              <li><a href='#tabs-5'>Hyperparamter Tuning <i class="fa fa-angle-right"></i></a></li>
+             
+            </ul>
+          </div>
+          <div class="col-md-8">
+            <section class='tabs-content'>
+              <article id='tabs-1'>
+                
+                <h4>Data Collection</h4>
+                <p><b>PHISHING URLs</b><br>
+                  Using the services of Phishtank has allowed us to obtain a dataset of phishing urls. Phishtank provides dataset of most recently detected phishing url in form of csv, json, xml etc.
+                  Phishtank is basically a community site where anyone can submit, verify, track and share phishing data.<br>
+                  It consists of following columns - phish_id, url, phish_detail_url, submission_time, verified, verification_time, online, target.
+                  
+                <br><br><b>LEGITIMATE URLs</b><br>
+                The legitimate URLs are obtained from the open datasets of the University of New Brunswick, which contains legitimate URLs from year 2016 and onwards.
+                This dataset has a collection of benign, spam, phishing, malware & defacement URLs. Out of all these types, the benign URL dataset is considered for this project. From this dataset, 10,000 random legitimate URLs are collected to train the ML models.</p>
+              </article>
+              <article id='tabs-2'>
+                <img src="{{ url_for('static',filename='assets/images/Feature.png')}}" alt="Features">
+                <h4>Feature Extraction</h4>
+                <p>The number of features provided to the model and the accuracy of results are directly proportional to each other. Hence, a high number of features will help our model learn with ease and provide an accurate output. 
+                  The extracted features are categorized into:<br>
+                  <b>1) Address Bar based Features</b><br>
+                  Domain in the URL<br>
+                  IP Address in the URL<br>
+                  "@" Symbol in URL<br>
+                  Length of URL<br>
+                  Depth of URL<br>
+                  Redirection "//" in URL<br>
+                  "http/https" in Domain name<br>
+                  Prefix or Suffix "-" in Domain<br>
+                  Using URL Shortening Services “TinyURL”<br><br>
+                  
+                  <b>2) Domain based Features</b><br>
+                  DNS Record<br>
+                  Web Traffic<br>
+                  Age of Domain<br>
+                  End Period of Domain<br><br>
+                  
+                  <b>3) HTML & JavaScript based Features</b><br>
+                  IFrame Redirection<br>
+                  Status Bar Customization<br>
+                  Disabling Right Click<br>
+                  Website Forwarding<br>
+                  </p>
+              </article>
+              <article id='tabs-3'>
+                <img src="{{ url_for('static',filename='assets/images/Data_Preparation.jpg')}}" alt="">
+                <h4>Data Preparation</h4>
+                <p>
+                  <b>1) Exploratory Data Analysis</b><br>
+                  Here we explore characteristics of our final dataset. Our dataset comprises of 17 features x
+                  20,000 URLs which are a combination of legitimate and phishing websites.<br>
+                  <b>2) Data Visualisation</b><br>
+                  Through various plots such as histogram, count-plot, scatter plot, pie-chart, correlation matrix, etc. we visualize the relationships between our extracted features. Also, visualization helps us to perform an in-depth analysis of our dataset. <br>
+                  <b>3) Data Pre-processing</b><br>
+                  Using methods such as checking null values, outlier detection and data re-sampling we prepared our dataset to train machine learning algorithms
+                  </p>
+              </article>
+              <article id='tabs-4'>
+                <img src="{{ url_for('static',filename='assets/images/Model_creation.png')}}" alt="">
+                <h4>Model Creation</h4>
+                <p><b>HYBRID MODEL</b><br>
+                  This model is a combination of two or more algorithms to obtain a model that covers all the best features of both algorithms used. This model is developed in 2 phases, in the first phase we pick our machine learning algorithms and apply it to our dataset and on evaluation we select 4 best performing algorithms. In the second phase we find the best combination of algorithms we got in phase-1 to overcome individual limitations.
+                  The first step of model creation requires us to split the data.<br> 
+                  Train-Test Split: Initially, we split the data into features and target set. Data in 'X' variable consists of the features which will be used by our model to perform predictions. Data in 'y' variable is the target label. The ratio of size of training set to testing set is (75:25) %.<br>
+                  From our dataset it was clear that this machine learning task was supervised in nature. Under supervised learning there are two types namely, classification and regression. Phishing URL detection falls under classification problem, i.e., the input of the URL and target label is 0 (legitimate) and 1 (phishing).<br>
+                  
+                  Therefore, the machine learning models (classifiers) used to train this dataset are:<br>
+                  1. Decision Tree<br>
+                  2. Random Forest<br>
+                  
+                  To evaluate the performance of our machine learning models, we have used the following evaluation metrics:<br>
+                  1. Classification report - The classification report visualizer displays the precision, recall, F1, and support scores for the model.<br>
+                  2. Precision - Precision is the ability of a classifier not to label an instance positive that is actually negative. For each class, it is defined as the ratio of true positives to the sum of a true positive and false positive.<br>
+                  3. Recall - Recall is the ability of a classifier to find all positive instances. For each class it is defined as the ratio of true positives to the sum of true positives and false negatives.<br>
+                  4. F1 score - The F1 score is a weighted harmonic mean of precision and recall such that the best score is 1.0 and the worst is 0.0.<br>
+                  5. Support - Support is the number of actual occurrences of the class in the specified dataset.<br><br>
+                  Confusion Matrix is a performance measurement for machine learning classification problem where output can be two or more classes. It is a table with 4 different combinations of predicted and actual values. It is extremely useful for measuring Recall, Precision, Specificity, Accuracy, and most importantly AUC-ROC curves.<br>
+                  1. True Positive: You predicted positive and it’s true.<br>
+                  2. True Negative: You predicted negative and it’s true.<br>
+                  3. False Positive (Type 1 Error): You predicted positive and it’s false.<br>
+                  4. False Negative (Type 2 Error): You predicted negative and it’s false.<br>
+                  <br>
+                  ROC AUC Curve:<br>
+                  The Receiver Operator Characteristic (ROC) curve is an evaluation metric for binary classification problems. It is a probability curve that plots the TPR against FPR at various threshold values and essentially separates the ‘signal’ from the ‘noise’. <br>The Area Under the Curve (AUC) is the measure of the ability of a classifier to distinguish between classes and is used as a summary of the ROC curve. It tells how much the model is capable of distinguishing between classes. Higher the AUC, the better the model is at predicting 0 classes as 0 and 1 classes as 1. An excellent model has AUC near to the 1 which means it has a good measure of separability. The AUC score can be computed using the roc_auc_score() method of sklearn.
+                  </p>
+              </article>
+              <article id='tabs-5'>
+                <img src="{{ url_for('static',filename='assets/images/Hyperparameter.png')}}" alt="">
+                <h4>Hyperparamter Tuning</h4><br>
+                <p><b>Comparison of Methods</b><br>
+                  The top 4 models based on their evaluation metrics are Decision Tree, Random Forest, XGBoost and MLP. However, due to its high computational complexity we will not be considering MLP for preparing our ensemble. Instead, we will make use of the Gradient Boosting Machine which is an ensemble and the next best performing model.
+                  <br><br>
+                  <b>Hyperparameter Tuning</b><br>
+                  A hyperparameter is a parameter whose value can be used to control the learning process. In machine learning, hyperparameter tuning is the process of choosing a set of optimal hyperparameters for a learning algorithm.<br>
+                  Methods of Hyperparameter Tuning (scikit-learn):<br>
+                  In both the methods we create a grid of possible values of hyperparameters.<br>
+                  <b>Grid Search </b>- Grid Search iterates through the grid and tries the combinations of hyperparameters in a specific order. Then, it fits the model on every combination and records the performance. The result is the best model with the best hyperparameters.<br>
+                  <b>Random Search -</b> Random Search iterates through the grid, tries random combinations of hyperparameters and provides the best model with best hyperparameters.<br>
+                  The selected models DTC, RFC, XGB and GBM, underwent the process of hyperparameter tuning to improve their accuracy.
+                  </p>
+              </article>
+             
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Footer Starts Here -->
+    
+    
+    <div class="sub-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p>  Phishing Website Detection
+            
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+    <!-- Additional Scripts -->
+    <script src="{{ url_for('static',filename='assets/js/custom.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/owl.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/slick.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/accordions.js')}}"></script>
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; 
+      function clearField(t){                   
+      if(! cleared[t.id]){                  
+          cleared[t.id] = 1;  
+          t.value='';     
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+  </body>
+</html>

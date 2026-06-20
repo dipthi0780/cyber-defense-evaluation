@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Phishing Website Detection</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/PhishingDetection.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/owl.css')}}">
+<!--
+
+-->
+  </head>
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <div class="sub-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-xs-12">
+            <ul class="left-info">
+              
+            </ul>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+    
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="/"><h2>Phishing Website Detection</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/about">About Us</a>
+              </li>  
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/behindthescenes">Implementation</a>
+              </li>                          
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/detecturl">Detect a URL</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>About Us</h1>
+            <span>Know what we are, Know what we do</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="more-info about-info">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="more-info-content">
+              <div class="row">
+                <div class="col-md-6 align-self-center">
+                  <div class="right-content">
+                    <span></span>
+                    <h2>Get to know about <em>US</em></h2>
+                    <p>It makes use of a complex machine learning algorithm that detects phishing URLs in real-time.<br> Trying to gather personal information through deceptive ways is
+becoming more common nowadays. In order to assist the user to be
+aware of the access to such websites, the implemented system
+notifies the user through email and also pop-up, when trying to
+access a phishing site. This paper proposes an approach of phishing
+detection system to detect blacklisted URL also known as phishing
+websites, so that individual can be alerted while browsing or
+accessing a particular website. Therefore, it can be utilized for
+identification and authentication and become a legitimate tool to
+prevent an individual from getting tricked.</p>
+                    
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+
+    
+
+    <!-- Footer Starts Here -->
+    
+    
+    <div class="sub-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p> Phishing Website Detection
+            
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+    <!-- Additional Scripts -->
+    <script src="{{ url_for('static',filename='assets/js/custom.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/owl.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/slick.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/accordions.js')}}"></script>
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; 
+      function clearField(t){                   
+      if(! cleared[t.id]){                     
+          cleared[t.id] = 1;  
+          t.value='';        
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+  </body>
+</html>

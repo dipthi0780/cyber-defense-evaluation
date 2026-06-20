@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <title>Phishing Website Detection</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/PhishingDetection.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/owl.css')}}">
+<!--
+
+-->
+    <style>
+      .button {
+        position: relative;
+        padding: 8px 16px;
+        background: #55c7ed;;
+        border: 3px solid white;
+        outline: none;
+        border-radius: 4px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        box-shadow: 5px 5px;
+      }
+
+      .button:active {
+        background: #55c7ed;;
+      }
+
+      .button__text {
+        font: bold 20px "Poppins", san-serif;
+        color: #ffffff;
+        transition: all 0.2s;
+      }
+
+      .button--loading .button__text {
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      .button--loading::after {
+        content: "";
+        position: absolute;
+        width: 29px;
+        height: 34px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        border: 4px solid transparent;
+        border-top-color: #ffffff;
+        border-radius: 50%;
+        animation: button-loading-spinner 1s ease infinite;
+      }
+
+      .button:hover {
+        background-color: #55c7ed; /* Green */
+        color: white;
+      }
+
+      @keyframes button-loading-spinner {
+        from {
+          transform: rotate(0turn);
+        }
+
+        to {
+          transform: rotate(1turn);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+
+    <!-- Header -->
+    <div class="sub-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-xs-12">
+            <ul class="left-info">
+              
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    <header class="">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="/"><h2>Phishing Website Detection</h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About Us</a>
+              </li>  
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/behindthescenes">Implementation</a>
+              </li>                          
+              
+              <li class="nav-item active">
+                <a class="nav-link" href="/detecturl">Detect a URL</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-heading header-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Detect Your URL</h1>
+            <span>Use our amazing machine learning model to stay safe from phishing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-information" style="margin-top: 50px;">
+      <div class="flexbox">
+        <form class="search" action="{{ url_for('prediction') }}" method="POST">
+          <h1 id='label1'>Check your site here</h1>
+          <h4 id='label2'>Click on search icon, then type your URL.</h4>
+
+          <div class='searchbox'>
+             <input type="text" placeholder="Type your URL . . ." id="url" name="url" required>
+          </div>
+
+          <br><br>
+
+          <button type="submit" class="button">
+              <span class="button__text">Detect Now</span>
+          </button>
+        </form>
+        {% if prediction_text %}
+<br><br>
+
+<div class="container text-center">
+
+  {% if "Phishing" in prediction_text %}
+  
+  <div class="alert alert-danger" style="font-size:20px;">
+      {{ prediction_text }} <br>
+      Confidence: {{ confidence }}
+  </div>
+
+  {% else %}
+
+  <div class="alert alert-success" style="font-size:20px;">
+      {{ prediction_text }} <br>
+      Confidence: {{ confidence }}
+  </div>
+
+  {% endif %}
+
+</div>
+
+{% endif %}
+      </div>
+    </div>
+    
+    <script>
+
+document.getElementById("urlForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const url = document.getElementById("url").value;
+
+    if(url.length === 0){
+        document.getElementById("label1").innerHTML = "Incorrect Submission!!";
+        document.getElementById("label2").innerHTML = "Please input a URL";
+        return;
+    }
+
+    document.getElementById("label1").innerHTML = "Checking URL...";
+    document.getElementById("label2").innerHTML = "Please wait while we check your URL";
+
+    fetch("/prediction", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "url=" + encodeURIComponent(url)
+    })
+    .then(response => response.text())
+    .then(html => {
+        document.open();
+        document.write(html);
+        document.close();
+    });
+
+});
+
+</script>
+    <br><br>
+
+
+    
+
+
+    <!-- Footer Starts Here -->
+    
+    
+    <div class="sub-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p>Phishing Website Detection
+            
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+    <!-- Additional Scripts -->
+    <script src="{{ url_for('static',filename='assets/js/custom.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/owl.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/slick.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/accordions.js')}}"></script>
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; 
+      function clearField(t){                   
+      if(! cleared[t.id]){                      
+          cleared[t.id] = 1;  
+          t.value='';         
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+  </body>
+</html>
