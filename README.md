@@ -36,11 +36,12 @@ A reliable automated detection system is needed to help users identify malicious
 | Pickle (.pkl) | Model serialization and deployment |
 
 🏗️ System Architecture
-![Architecture](images/architecture.png)
+<img width="1894" height="910" alt="homepage png" src="https://github.com/user-attachments/assets/1e32dc18-969c-4a17-8f67-31623bbfbd61" />
+
 
 📸 Application Screenshots
 ### Home Page
-![Home Page](Phishing Website Detection System/images/homepage.png)
+![Home Page](Phishing Website Detection System/imges/homepage.png)
 
 ### Legitimate Website Prediction
 ![Legitimate Result](Phishing Website Detection System/images/legitimate_result.png)
