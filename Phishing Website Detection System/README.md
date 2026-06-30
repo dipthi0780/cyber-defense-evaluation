@@ -167,7 +167,7 @@ http://localhost:5000
 
 ### 👩‍💻 Author
 
-Pavani Mynam
+DIPTHI REDDY
 
 B.Tech – Computer Science \& Engineering
 
