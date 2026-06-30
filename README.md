@@ -88,6 +88,7 @@ Mobile application support.
 
 **👩‍💻 Author**
 Pavani Mynam
+Dipthi Reddy
 
 B.Tech – Computer Science & Engineering
 
